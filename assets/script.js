@@ -165,40 +165,44 @@ answerBtns.setAttribute('style','display: none');
 questionText.setAttribute('style', 'display: none');
 description.textContent = "Game Over!"
 description.setAttribute("style", "display: block");
-saveHighScore();
+clearInterval(timeInterval);
+scoreContainer.style.display = "block";
 }
+scoreForm.addEventListener("submit", submitScore);
 
-function saveHighScore() {
-    preventDefault();
-    const initials = document.getElementById("initials").value;
+function submitScore(event) {
+    event.preventDefault();
+
+    const initials = document.getElementById("initials").value.trim();
+    if (!initials) {
+        alert("Please enter your initials.");
+        return;
+    }
+
+    // Save high score to local storage
     const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
-    // Add new score to high scores list
-    highScores.push({ name: initials, score: userScore });
-
-    // Sort high scores in descending order
+    highScores.push({ initials: initials, score: userScore });
     highScores.sort((a, b) => b.score - a.score);
-
-    // Keep only the top 5 scores
-    highScores.splice(5);
-
     localStorage.setItem("highScores", JSON.stringify(highScores));
-    scoreForm.style.display = "none";
+
+    // Display high scores
     displayHighScores();
 }
 
+// Display high scores function
 function displayHighScores() {
-
-    highScoresBody.innerHTML = '';
+    highScoresTable.style.display = "block";
+    tableBody.innerHTML = ''; // Clear previous entries
 
     const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
     highScores.forEach((score, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>${index + 1}</td><td>${score.initials}</td><td>${score.score}</td>`;
-        tableBody.appendChild(row);
-    });
+        if (score.score !== undefined) { // Check if score is defined
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>${index + 1}</td><td>${score.initials}</td><td>${score.score}</td>`;
+            tableBody.appendChild(row);
+        }});
+    
 
-    scoreContainer.style.display = "block"; // Show the high scores table
-}
+    highScoresTable.style.display = "block"; // Show the high scores table
+};
 
