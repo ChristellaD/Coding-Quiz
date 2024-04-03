@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="/assets/StyleSheet.css">
+</head>
+<body>
+    <header>
+        <h1>Coding Quiz Challenge</h1>
+        <h3 id="description">
+            This timed quiz will test your Javascript knowledge. You will have 60 seconds to answer a series of questions. 
+            <br> Be careful! Every wrong answer will subtract 10 seconds from your score.
+            <br> Click the start button to begin.
+        </h3>
+    </header>
+    <div class="container">
+    <button class="button" id="start">Start!</button>
+    </div>
+    <div class="container">
+        <div class="timer-text">
+            <p id="count"></p>
+        </div>
+    </div>
+    <div class="container">
+        <h2 id="question"></h2>
+        <div id="answer-container"></div>
+    </div>
+    <div id="score-container">
+        <form id="score-form">
+            <label for="initials">Enter your intials to save your score:</label><br>
+            <input type="text" id="initials" name="initials" required>
+            <input type="submit" value="submit">
+        </form>
+        <table id="high-scores">
+            <thead>
+                <tr>
+                    <th>Initials</th>
+                    <th>Score</th>
+                </tr>
+                <tbody id="scores-table"></tbody>
+            </thead>
+        </table>
+    </div>
+    
+</body>
+<script src = "assets/script.js"></script>
+</html>
