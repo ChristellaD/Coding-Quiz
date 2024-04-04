@@ -1,7 +1,7 @@
 # Coding Quiz
 
 ## Description 
-This timed, multiple chice Code Quiz project is designed to help users practice test-taking techniques and assess their knowledge of JavaScript. This browser-based features dynamically updated HTML and CSS powered by JavaScript code. The project aims to provide a polished, user-friendly interface for an comfortable quiz-taking experience. 
+This timed, multiple-choice Coding Quiz is designed to help users practice test-taking techniques and assess their knowledge of JavaScript. This browser-based features dynamically updated HTML and CSS powered by JavaScript code. The project aims to provide a polished, user-friendly interface for an comfortable quiz-taking experience. 
 
 It was developed as practice with web APIs, DOM manipulation, and creating dynamic applications.
 
